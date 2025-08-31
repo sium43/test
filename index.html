@@ -28,7 +28,7 @@
       --glass-border: rgba(255, 255, 255, 0.1);
       --gradient-primary: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
       --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 極.1);
+      --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
       --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
       --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
       --radius: 12px;
@@ -51,12 +51,10 @@
       line-height: 1.6;
       min-height: 100vh;
       overflow-x: hidden;
-      /* স্ক্রলবার লুকানো */
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
-    /* স্ক্রলবার লুকানো (Chrome, Safari, Opera) */
     body::-webkit-scrollbar {
       display: none;
     }
@@ -122,7 +120,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      padding: 6極 12px;
+      padding: 6px 12px;
       border-radius: 20px;
       border: 1px solid var(--glass-border);
       backdrop-filter: blur(10px);
@@ -249,7 +247,7 @@
     .stat-number {
       font-size: 2.8rem;
       font-weight: 800;
-      background: var(--極radient-primary);
+      background: var(--gradient-primary);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -390,17 +388,6 @@
       font-size: 0.85rem;
     }
 
-    .btn:disabled {
-      background: var(--text-muted);
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-
-    .btn:disabled:hover {
-      transform: none;
-      box-shadow: none;
-    }
-
     .btn::before {
       content: '';
       position: absolute;
@@ -419,6 +406,18 @@
     .btn:focus, .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn.disabled {
+      background: var(--text-muted);
+      cursor: not-allowed;
+      box-shadow: none;
+      opacity: 0.6;
+    }
+
+    .btn.disabled:hover {
+      transform: none;
+      box-shadow: none;
     }
 
     /* =========================
@@ -526,8 +525,8 @@
       font-size: 1.25rem;
       font-weight: 800;
       margin-top: 6px;
-      margin-bottom: 2極;
-      background: linear-gradient(90deg, #8b5cf6, #ec4899, #10極981);
+      margin-bottom: 2px;
+      background: linear-gradient(90deg, #8b5cf6, #ec4899, #10b981);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -741,7 +740,7 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      line-height極 1.5;
+      line-height: 1.5;
     }
 
     /* =========================
@@ -800,7 +799,7 @@
       }
 
       .stats {
-        grid-template-column極: 1fr;
+        grid-template-columns: 1fr;
       }
 
       .hero {
@@ -809,7 +808,7 @@
 
       .hero h1 {
         font-size: 1.8rem;
-極     }
+      }
 
       .today-classes-table {
         display: block;
@@ -822,7 +821,7 @@
     }
 
     /* =========================
-    CUSTOM SCROLLBAR (লুকানো)
+    CUSTOM SCROLLBAR
     ========================= */
     ::-webkit-scrollbar {
       width: 0px;
@@ -885,9 +884,9 @@
     }
 
     .filter-bar input, .filter-bar select {
-      padding: 12px 極6px;
+      padding: 12px 16px;
       border-radius: 10px;
-      border極 1px solid var(--card-border);
+      border: 1px solid var(--card-border);
       background: var(--glass);
       color: var(--text);
       outline: none;
@@ -946,7 +945,7 @@
       overflow: hidden;
     }
 
-    .極ogin-container::before {
+    .login-container::before {
       content: '';
       position: absolute;
       top: 0;
@@ -996,14 +995,14 @@
       padding: 14px 18px;
       border-radius: 10px;
       border: 1px solid var(--card-border);
-      background:極 var(--glass);
+      background: var(--glass);
       color: var(--text);
       outline: none;
       transition: var(--transition);
       font-size: 1rem;
     }
 
-    .form-group input:極ocus {
+    .form-group input:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
     }
@@ -1095,7 +1094,7 @@
       border: 1px solid var(--card-border);
       border-radius: 16px;
       padding: 30px;
-     極ax-width: 500px;
+      max-width: 500px;
       width: 90%;
       backdrop-filter: blur(15px);
       box-shadow: var(--shadow-lg);
@@ -1170,7 +1169,6 @@
         <h1 class="bangla-font">Dakhil-26 "Final Stage Preparation Course"</h1>
         <p class="bangla-font">শিক্ষার যাত্রায় এক নতুন দিগন্ত। বাংলাদেশ অনলাইন মাদ্রাসা (BOM) এর প্রাইভেট ব্যাচের দাখিল-২৬ শিক্ষার্থীদের জন্য প্রিমিয়াম লার্নিং এক্সপেরিয়েন্স</p>
       </div>
-
       <div class="login-form">
         <div class="form-group">
           <label for="password" class="bangla-font">সিকিউরিটি কোড লিখুন</label>
@@ -1179,7 +1177,6 @@
         <button class="login-btn bangla-font" onclick="checkPassword()">লগইন করুন</button>
         <div id="error-message" class="error-message bangla-font">সিকিউরিটি কোডটি ভুল হয়েছে। আবার চেষ্টা করুন।</div>
       </div>
-
       <div class="support-info">
         <p class="bangla-font">এক্সেস পাসওয়ার্ড পেতে BOM এর এডমিনের সাথে যোগাযোগ করুন</p>
         <a href="https://wa.me/8801806234120" class="whatsapp-link" target="_blank">
@@ -1209,12 +1206,12 @@
       <!-- হিরো সেকশন -->
       <div class="hero fade-in">
         <h1 class="bangla-font">Dakhil-26 "Final Stage Preparation Course"</h1>
-        <p class="bangla-font">শিক্ষার যাত্রায় এক নতুন দিগন্ত। বাংলাদেশ অনলাইন মাদ্রাসা (BOM) এর প্রাইভেট ব্যাচের দাখিল-২৬ শিক্ষার্থীদের জন্য প্রিমিয়াম লার্নিং এক্সপেরিয়েন্স</p>
+        <p class="bangla-font">শিক্ষার যাত্রায় এক নতুন দিগন্ত। বাংলাদেশ অনলাইন মাদ্রসাা (BOM) এর প্রাইভেট ব্যাচের দাখিল-২৬ শিক্ষার্থীদের জন্য প্রিমিয়াম লার্নিং এক্সপেরিয়েন্স</p>
       </div>
       <!-- স্ট্যাটস সেকশন -->
       <div class="stats">
         <div class="stat-card fade-in">
-          <div class="stat-number">26</div>
+          <div class="stat-number">25</div>
           <div class="stat-label bangla-font">সাবজেক্ট</div>
         </div>
         <div class="stat-card fade-in">
@@ -1257,13 +1254,12 @@
         <h2 class="bangla-font">সব সাবজেক্ট</h2>
       </div>
       <div class="subj-list">
-        <!-- পূর্বের সাবজেক্টগুলি -->
         <a class="pill subject-link" href="#" data-name="কুরআন মাজীদ ও তাজভীদ"><span><i class="fas fa-book-quran"></i> <span class="bangla-font">কুরআন মাজীদ ও তাজভীদ</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="হাদিস শরীফ"><span><i class="fas fa-book"></i> <span class="bangla-font">হাদিস শরীফ</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="আরবি প্রথম পত্র"><span><i class="fas fa-language"></i> <span class="bangla-font">আরবি প্রথম পত্র</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="আরবি দ্বিতীয় পত্র"><span><i class="fas fa-language"></i> <span class="bangla-font">আরবি দ্বিতীয় পত্র</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="আকাইদ ও ফিকহ"><span><i class="fas fa-balance-scale"></i> <span class="bangla-font">আকাইদ ও ফিকহ</span></span><span class="go bangla-font">খুলুন</span></a>
-        <a class="pill subject-link" href="#" data-name="বাংলা প্রথম পত্র"><span><i class="fas fa-font"></i> <span class="bangla-font">বাংলা প্রথম পত্র</span></span><span class極="go bangla-font">খুলুন</span></a>
+        <a class="pill subject-link" href="#" data-name="বাংলা প্রথম পত্র"><span><i class="fas fa-font"></i> <span class="bangla-font">বাংলা প্রথম পত্র</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="বাংলা দ্বিতীয় পত্র"><span><i class="fas fa-font"></i> <span class="bangla-font">বাংলা দ্বিতীয় পত্র</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="ইংরেজি প্রথম পত্র"><span><i class="fas fa-font"></i> <span class="bangla-font">ইংরেজি প্রথম পত্র</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="ইংরেজি দ্বিতীয় পত্র"><span><i class="fas fa-font"></i> <span class="bangla-font">ইংরেজি দ্বিতীয় পত্র</span></span><span class="go bangla-font">খুলুন</span></a>
@@ -1276,16 +1272,12 @@
         <a class="pill subject-link" href="#" data-name="জীববিজ্ঞান"><span><i class="fas fa-dna"></i> <span class="bangla-font">জীববিজ্ঞান</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="বাংলাদেশ ও বিশ্বপরিচয়"><span><i class="fas fa-globe-asia"></i> <span class="bangla-font">বাংলাদেশ ও বিশ্বপরিচয়</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="কৃষি শিক্ষা"><span><i class="fas fa-seedling"></i> <span class="bangla-font">কৃষি শিক্ষা</span></span><span class="go bangla-font">খুলুন</span></a>
-        
-        <!-- নতুন যোগ করা সাবজেক্টগুলি (অন্যান্য-এর ঠিক উপরে) -->
         <a class="pill subject-link" href="#" data-name="মানতিক"><span><i class="fas fa-brain"></i> <span class="bangla-font">মানতিক</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="গার্হস্থ্য বিজ্ঞান"><span><i class="fas fa-home"></i> <span class="bangla-font">গার্হস্থ্য বিজ্ঞান</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="পৌরনীতি ও নাগরিকতা"><span><i class="fas fa-landmark"></i> <span class="bangla-font">পৌরনীতি ও নাগরিকতা</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="মিশন"><span><i class="fas fa-bullseye"></i> <span class="bangla-font">মিশন</span></span><span class="go bangla-font">খুলুন</span></a>
         <a class="pill subject-link" href="#" data-name="ইক্সাম"><span><i class="fas fa-file-alt"></i> <span class="bangla-font">ইক্সাম</span></span><span class="go bangla-font">খুলুন</span></a>
-        
-        <!-- অন্যান্য ফোল্ডার (সবচেয়ে নিচে) -->
-        <a class="pill subject-link" href="#" data-name="অন্যান্য"><span><i class="fas fa-ellipsis-h"></極> <span class="bangla-font">অন্যান্য</span></span><span class="go bangla-font">খুলুন</span></a>
+        <a class="pill subject-link" href="#" data-name="অন্যান্য"><span><i class="fas fa-ellipsis-h"></i> <span class="bangla-font">অন্যান্য</span></span><span class="go bangla-font">খুলুন</span></a>
       </div>
     </main>
     <!-- OWNER + DESIGNER block -->
@@ -1308,6 +1300,7 @@
       © 2025 Dakhil-26 "Final Stage Preparation Course" (BOM). All rights reserved.
     </footer>
   </div>
+
   <!-- সাবজেক্ট পৃষ্ঠা (প্রথমে লুকানো) -->
   <div id="subject-page" style="display: none;">
     <header>
@@ -1346,7 +1339,7 @@
       © 2025 Dakhil-26 "Final Stage Preparation Course" (BOM). All rights reserved.
     </footer>
   </div>
-  
+
   <!-- ওয়ার্নিং মোডাল -->
   <div id="warning-modal" class="warning-modal">
     <div class="modal-content">
@@ -1364,11 +1357,11 @@
   </div>
 
   <div id="notification" class="notification"></div>
+
   <script>
     // =========================
     // JavaScript কোড - Google Sheets সংযোগ সহ
     // =========================
-    // আপনার Google Apps Script Web App URL
     const API_URL = "https://script.google.com/macros/s/AKfycbwZnb6Lr-_IN1FzgvhQ-em6NjaqVIWWpmEKHinchUbY4Bt8NhOssIx_dRJ4MiSFmfKJ4g/exec";
 
     // DOM হেল্পার ফাংশন
@@ -1383,15 +1376,15 @@
     const warningModal = $('#warning-modal');
     let allClasses = [];
 
-    // সাবজেক্টের তালিকা (Dakhil-26 এর জন্য) - নতুন সাবজেক্ট যোগ করা হয়েছে
+    // সাবজেক্টের তালিকা (Dakhil-26 এর জন্য)
     const availableSubjects = [
       "কুরআন মাজীদ ও তাজভীদ", "হাদিস শরীফ", "আরবি প্রথম পত্র", "আরবি দ্বিতীয় পত্র",
       "আকাইদ ও ফিকহ", "বাংলা প্রথম পত্র", "বাংলা দ্বিতীয় পত্র", "ইংরেজি প্রথম পত্র",
       "ইংরেজি দ্বিতীয় পত্র", "গণিত", "ইসলামের ইতিহাস", "তথ্য ও যোগাযোগ প্রযুক্তি",
       "পদার্থবিজ্ঞান", "রসায়ন", "উচ্চতর গণিত", "জীববিজ্ঞান",
-      "বাংলাদেশ ও বিশ্বপরিচয়", "কৃষি শিক্ষা", 
-      "মানতিক", "গার্হস্থ্য বিজ্ঞান", "পৌরনীতি ও নাগরিকতা", "মিশন", "ইক্সাম",
-      "অন্যান্য"
+      "বাংলাদেশ ও বিশ্বপরিচয়", "কৃষি শিক্ষা",
+      "মানতিক", "গার্হস্থ্য বিজ্ঞান", "পৌরনীতি ও নাগরিকতা", "মিশন",
+      "ইক্সাম", "অন্যান্য"
     ];
 
     // localStorage keys
@@ -1414,7 +1407,7 @@
     // লগইন expiry চেক করা
     function checkLoginExpiry() {
       const expiryTime = localStorage.getItem(LOGIN_EXPIRY_KEY);
-      const isLoggedIn = localStorage.getItem極(IS_LOGGED_IN_KEY);
+      const isLoggedIn = localStorage.getItem(IS_LOGGED_IN_KEY);
       
       if (!expiryTime || !isLoggedIn) {
         return false;
@@ -1461,23 +1454,13 @@
       const errorElement = document.getElementById('error-message');
       
       if (password === 'USERDAKHIL26') {
-        // সঠিক পাসওয়ার্ড
         loginPage.style.display = 'none';
         mainPage.style.display = 'block';
-        
-        // লগইন expiry তারিখ সেট করুন
         setLoginExpiry();
-        
-        // ওয়ার্নিং মোডাল দেখান
         showWarningModal();
-        
-        // মূল ওয়েবসাইট লোড করুন
         loadInitialData();
-        
-        // পেজ উপরে স্ক্রল করুন
         scrollToTop();
       } else {
-        // ভুল পাসওয়ার্ড
         errorElement.style.display = 'block';
         setTimeout(() => {
           errorElement.style.display = 'none';
@@ -1485,21 +1468,19 @@
       }
     }
 
-    // Enter কী চাপলে also check password
+    // Enter কী চাপলে check password
     document.getElementById('password').addEventListener('keypress', function(e) {
       if (e.key === 'Enter') {
         checkPassword();
       }
     });
 
-    // টাইমস্ট্যাম্প থেকে তারিখ বের করা (আপনার App Script ফরম্যাট অনুযায়ী)
+    // টাইমস্ট্যাম্প থেকে তারিখ বের করা
     function getDateFromTimestamp(timestamp) {
       if (!timestamp) return getTodayDate();
 
       try {
-        // আপনার App Script থেকে আসা ফরম্যাট: "Fri Aug 29 2025 15:41:24 GMT+0600 (Bangladesh Standard Time)"
         if (typeof timestamp === 'string') {
-          // সরাসরি Date object তৈরি করার চেষ্টা করুন
           const date = new Date(timestamp);
           if (!isNaN(date)) {
             const year = date.getFullYear();
@@ -1508,9 +1489,7 @@
             return `${year}-${month}-${day}`;
           }
         }
-
         return getTodayDate();
-
       } catch (error) {
         console.error("Timestamp parsing error:", error, timestamp);
         return getTodayDate();
@@ -1522,7 +1501,6 @@
       if (!timestamp) return '3:37 PM';
 
       try {
-        // আপনার App Script থেকে আসা ফরম্যাট ব্যবহার করে
         const date = new Date(timestamp);
         if (!isNaN(date)) {
           const hours = date.getHours();
@@ -1531,9 +1509,7 @@
           const hour12 = hours % 12 || 12;
           return `${hour12}:${minutes} ${period}`;
         }
-
         return '3:37 PM';
-
       } catch (error) {
         console.error("Time parsing error:", error, timestamp);
         return '3:37 PM';
@@ -1564,30 +1540,10 @@
           const [year, month, day] = dateStr.split('-');
           return `${parseInt(day)} ${banglaMonths[parseInt(month) - 1]}, ${year}`;
         }
-
         return dateStr;
-
       } catch (error) {
         console.error("Date formatting error:", error, dateStr);
         return dateStr;
-      }
-    }
-
-    // ইক্সামের সময়সীমা পরীক্ষা করার ফাংশন
-    function isExamTimeExpired(timestamp) {
-      if (!timestamp) return true;
-      
-      try {
-        const examTime = new Date(timestamp);
-        const currentTime = new Date();
-        const timeDifference = currentTime - examTime;
-        const hoursDifference = timeDifference / (1000 * 60 * 60);
-        
-        // 10 ঘন্টার বেশি হলে সময় শেষ
-        return hoursDifference > 10;
-      } catch (error) {
-        console.error("Exam time check error:", error);
-        return true;
       }
     }
 
@@ -1596,22 +1552,18 @@
       if (!subjectFromSheet) return null;
 
       const cleanSubject = subjectFromSheet.toString().trim();
-
-      // সরাসরি মিল খুঁজুন
       for (const availableSubject of availableSubjects) {
         if (cleanSubject === availableSubject) {
           return availableSubject;
         }
       }
-
-      return cleanSubject; // যদি মিল না থাকে, আসল সাবজেক্ট রিটার্ন করুন
+      return cleanSubject;
     }
 
     // ডেটা ফেচ করা
     async function fetchData() {
       try {
         showNotification("ডেটা লোড হচ্ছে...", false);
-
         const res = await fetch(API_URL, {
           method: 'GET',
           headers: {
@@ -1624,15 +1576,13 @@
         }
 
         const data = await res.json();
-
         if (data && data.ok) {
           showNotification("ডেটা সফলভাবে লোড হয়েছে!");
-          console.log("API Response:", data); // ডিবাগিং জন্য
+          console.log("API Response:", data);
           return data.rows || [];
         } else {
           throw new Error(data.error || "ডেটা লোড করতে সমস্যা");
         }
-
       } catch (error) {
         console.error("ডেটা লোড করতে সমস্যা:", error);
         showNotification("ডেটা লোড করা যায়নি: " + error.message, true);
@@ -1647,11 +1597,8 @@
         const subjectFromSheet = row.subject || 'Unknown Subject';
         const link = row.link || '#';
         const title = row.title || 'ক্লাস ভিডিও';
-
         const date = getDateFromTimestamp(timestamp);
         const time = getTimeFromTimestamp(timestamp);
-
-        // সাবজেক্ট ম্যাচিং
         const matchedSubject = findBestMatchingSubject(subjectFromSheet) || subjectFromSheet;
 
         return {
@@ -1664,40 +1611,54 @@
           serial: index + 1,
           timestamp: timestamp
         };
-
       } catch (error) {
         console.error("Row normalization error:", error, row);
         return null;
       }
     }
 
+    // Check if exam link is expired (10 hours = 36,000,000 milliseconds)
+    function isExamLinkExpired(timestamp) {
+      if (!timestamp) return false;
+      try {
+        const examTime = new Date(timestamp).getTime();
+        const now = new Date().getTime();
+        const tenHoursInMs = 10 * 60 * 60 * 1000; // 10 hours in milliseconds
+        return (now - examTime) > tenHoursInMs;
+      } catch (error) {
+        console.error("Exam expiry check error:", error, timestamp);
+        return false;
+      }
+    }
+
     // কার্ড রেন্ডার করা
     function renderCards(rows, root) {
       if (!rows || rows.length === 0) {
-        root.innerHTML = '<div class="empty-state"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 極 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><p class="bangla-font">কোন ক্লাস পাওয়া যায়নি</p></div>';
+        root.innerHTML = '<div class="empty-state"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg><p class="bangla-font">কোন ক্লাস পাওয়া যায়নি</p></div>';
         return;
       }
 
       root.innerHTML = '';
       rows.forEach(r => {
-        if (!r) return; // Skip invalid rows
+        if (!r) return;
 
-        // বিশেষ সাবজেক্টগুলোর জন্য বাটন টেক্সট
-        let buttonText = "ক্লাস দেখুন";
+        let buttonText;
         let isDisabled = false;
-        
+        let link = r.link;
         if (r.subject === "মিশন") {
           buttonText = "মিশন সম্পন্ন করুন";
         } else if (r.subject === "ইক্সাম") {
-          buttonText = "পরীক্ষায় অংশগ্রহণ করুন";
-          
-          // ইক্সামের সময়সীমা পরীক্ষা করুন
-          if (isExamTimeExpired(r.timestamp)) {
+          if (isExamLinkExpired(r.timestamp)) {
             buttonText = "পরীক্ষায় অংশগ্রহণ করার সময় শেষ হয়ে গেছে";
             isDisabled = true;
+            link = "#";
+          } else {
+            buttonText = "পরীক্ষায় অংশগ্রহণ করুন";
           }
+        } else {
+          buttonText = "ক্লাস দেখুন";
         }
-        
+
         const card = document.createElement('div');
         card.className = 'card fade-in';
         card.innerHTML = `
@@ -1705,9 +1666,7 @@
           <div class="subject"><i class="fas fa-book"></i> <span class="bangla-font">${r.subject}</span></div>
           <div class="video-title bangla-font">${r.title}</div>
           <div class="time"><i class="fas fa-clock"></i> ${r.time} | <span class="bangla-font">${formatDateToBangla(r.date)}</span></div>
-          <a class="btn" target="_blank" rel="noopener" href="${isDisabled ? '#' : r.link}" ${isDisabled ? 'disabled' : ''}>
-            <i class="fas fa-play-circle"></i> <span class="bangla-font">${buttonText}</span>
-          </a>
+          <a class="btn${isDisabled ? ' disabled' : ''}" ${isDisabled ? '' : 'target="_blank" rel="noopener"'} href="${link}"><i class="fas fa-play-circle"></i> <span class="bangla-font">${buttonText}</span></a>
         `;
         root.appendChild(card);
       });
@@ -1730,11 +1689,9 @@
         return;
       }
 
-      // টেবিল বডি তৈরি করা
       let tableHTML = '';
       todayClasses.forEach(cls => {
         if (!cls) return;
-
         tableHTML += `
           <tr>
             <td><span class="subject-badge bangla-font">${cls.subject}</span></td>
@@ -1743,7 +1700,6 @@
           </tr>
         `;
       });
-
       container.innerHTML = tableHTML;
     }
 
@@ -1761,10 +1717,7 @@
       $('#subject-title').innerHTML = `<i class="fas fa-book"></i> <span class="bangla-font">${subject}</span>`;
       mainPage.style.display = 'none';
       subjectPage.style.display = 'block';
-      
-      // পেজ উপরে স্ক্রল করুন
       scrollToTop();
-      
       loadSubjectData(subject);
     }
 
@@ -1773,8 +1726,6 @@
       subjectPage.style.display = 'none';
       mainPage.style.display = 'block';
       currentSubject = null;
-      
-      // পেজ উপরে স্ক্রল করুন
       scrollToTop();
     }
 
@@ -1787,8 +1738,6 @@
       grid.innerHTML = '<div class="card"><div class="subject bangla-font">লোড হচ্ছে... <span class="loading"></span></div></div>';
 
       let rows = allClasses.filter(r => r && String(r.subject).trim() === subject);
-
-      // ডিফল্টভাবে নতুন থেকে পুরানো সাজানো
       rows = sortByTime(rows, 'desc');
       renderCards(rows, grid);
 
@@ -1834,12 +1783,10 @@
         });
       }
 
-      // মিশন স্ট্যাটস কার্ডে ক্লিক ইভেন্ট যোগ
       $('#mission-stats').addEventListener('click', () => {
         showSubjectPage('মিশন');
       });
 
-      // ইক্সাম স্ট্যাটস কার্ডে ক্লিক ইভেন্ট যোগ
       $('#exam-stats').addEventListener('click', () => {
         showSubjectPage('ইক্সাম');
       });
@@ -1850,15 +1797,9 @@
       try {
         const data = await fetchData();
         allClasses = data.map((row, index) => normalizeRow(row, index)).filter(r => r);
-
-        console.log("Processed classes:", allClasses); // ডিবাগিং জন্য
-
-        // আজকের ক্লাস সারাংশ দেখানো
+        console.log("Processed classes:", allClasses);
         renderTodayClassesSummary(allClasses);
-
-        // ইভেন্ট লিসেনার সেটআপ
         setupEventListeners();
-
       } catch (error) {
         console.error("Initial data loading error:", error);
         showNotification("ডেটা লোড করতে সমস্যা হয়েছে", true);
@@ -1867,26 +1808,20 @@
 
     // পেজ লোড হলে ইনিশিয়ালাইজেশন
     document.addEventListener('DOMContentLoaded', () => {
-      // প্রথমে লগইন expiry চেক করুন
       const isLoggedIn = checkLoginExpiry();
       
       if (isLoggedIn) {
-        // যদি লগইন থাকে, মূল পৃষ্ঠা দেখান
         loginPage.style.display = 'none';
         mainPage.style.display = 'block';
         loadInitialData();
       } else {
-        // যদি লগইন না থাকে বা expiry হয়ে যায়, লগইন পৃষ্ঠা দেখান
         loginPage.style.display = 'flex';
         mainPage.style.display = 'none';
         subjectPage.style.display = 'none';
-        
-        // localStorage থেকে পুরানো ডেটা ক্লিয়ার করুন
         localStorage.removeItem(LOGIN_EXPIRY_KEY);
         localStorage.removeItem(IS_LOGGED_IN_KEY);
       }
 
-      // পেজ উপরে স্ক্রল করুন
       scrollToTop();
 
       setTimeout(() => {
